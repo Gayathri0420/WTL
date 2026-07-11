@@ -1,0 +1,47 @@
+<html>
+<body align="center" bgcolor="silver">
+<h2> Registration Form</h2>
+<form>
+  Name <input type="text" placeholder="Enter your name" id="name"><br>
+  Email <input type="email" placeholder="Enter your email" id="email"><br>
+  Contact No. <input type="number" placeholder="Enter your Mobile number" id="mobile"><br>
+  <input type="submit" onClick="return validate()">
+</form>
+<script>
+function validate(){
+  var n=document.getElementById("name");
+  var n1=n.value;
+  var e=document.getElementById("email");
+  var e1=e.value;
+  var c=document.getElementById("mobile");
+  var c1=c.value;
+  var nre=/^[a-zA-Z]+[0-9a-zA-Z._]*$/;
+  var ere=/^[a-zA-Z]+([\._]?\w+)*@\w+([\._]?\w+)*(\.\w{2,3})+$/;
+  var cre=/^[6-9][0-9]{9}$/;
+  if(nre.test(n1)){
+    if(ere.test(e1)){
+        if(cre.test(c1)){
+            alert("Registered Successfully");
+            return true;
+        }else{
+            return error(c);
+        }
+    }
+    else{
+        return error(e);
+    }
+  }
+  else{
+    return error(n);
+  }
+}
+function error(ele){
+    alert("Invalid");
+    ele.style.border="2px solid red";
+    ele.placeholder="invalid";
+    return false;
+}
+</script>
+<h3 align="center">24881A1271<br>B.Gayathri</h3>
+</body>
+</html>
